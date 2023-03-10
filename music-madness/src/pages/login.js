@@ -3,6 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import MusicContext from '../context/MusicContext.js';
 import {AUTH_ENDPOINT, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, RESPONSE_TYPE} from '../constants.js';
 import Home from './home.js';
+import './login.css';
 
 export default function Login() {
     const {artistData, setArtistData, token, setToken, trackData, setTrackData} = useContext(MusicContext);
@@ -36,7 +37,8 @@ export default function Login() {
                         "key": artist.id,
                         "name": artist.name,
                         "image": artist.images[0].url,
-                        "seed": index+1
+                        "seed": index+1,
+                        "detail2":artist.genres[0]
                     }
                 )))
             ).then(console.log(JSON.stringify(artistData)));
@@ -50,7 +52,8 @@ export default function Login() {
                         "key": track.id,
                         "name": track.name,
                         "image": track.album.images[0].url,
-                        "seed": index+1
+                        "seed": index+1,
+                        "detail2": track.artists[0].name
                     }
                 )))
             ).then(console.log(trackData));
@@ -60,10 +63,9 @@ export default function Login() {
     return (
         <div className="App">
             {!token ?
-                <header>
-                <h1>Music Madness</h1>
+                <div className='login-page'>
                 <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${encodeURIComponent('user-read-private user-library-read user-top-read')}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify </a>
-                </header>: 
+                </div>: 
                 <Home/>
             }
         </div>

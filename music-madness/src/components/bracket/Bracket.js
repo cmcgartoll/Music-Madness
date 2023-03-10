@@ -1,11 +1,18 @@
 import React, {useContext, useEffect, useState} from "react";
 import MusicContext from "../../context/MusicContext";
 import './Bracket.css';
+import Box from '@mui/material/Box';
 import { Link } from "react-router-dom";
 
 export default function Bracket(props) {
     const  seedOrder = (data) => {
-        return [data[0], data[7], data[1], data[6], data[2], data[5], data[3], data[4]];
+        const fakeMusicObject = {
+            "key": null,
+            "name": null,
+            "image": '../../images/null_img.png',
+            "seed": null
+        };
+        return [data[0], data[7], data[1], data[6], data[2], data[5], data[3], data[4], fakeMusicObject, fakeMusicObject, fakeMusicObject, fakeMusicObject, fakeMusicObject, fakeMusicObject, fakeMusicObject];
     }
     const [trackOrArtist, setTrackOrArtist] = useState(props.trackOrArtist);
     const {artistData, trackData} = useContext(MusicContext);
@@ -15,7 +22,7 @@ export default function Bracket(props) {
 
     const iterateMatchup = (musicObject) => {
         let localBracketData = bracketData;
-        localBracketData.push(musicObject);
+        localBracketData[Math.floor(bracketIndex/2)+8] = musicObject;
         setBracketIndex(bracketIndex+2);
         setBracketData(localBracketData);
         console.log(bracketData);
@@ -27,230 +34,260 @@ export default function Bracket(props) {
     }, [bracketData])
 
     return (
+
         <div>
-            <h1>{trackOrArtist} Bracket!</h1>
-            {bracketData.length < 15 ? 
-                <div>
+            <div className="bracket-page">
+                {bracketData[14].name === null ?
                     <div className="matchup">
-                        <div className="matchup-left">
-                            <div className="matchup-left-image" onClick={() => iterateMatchup(bracketData[bracketIndex])}>
-                                <img
+                        <div className="matchup-item">
+                            <div className="matchup-image" onClick={() => iterateMatchup(bracketData[bracketIndex])}>
+                                <img className="img"
                                 style={{width:"100%"}}
                                 src={bracketData[bracketIndex].image}
                                 alt={bracketData[bracketIndex].name}
                                 />
                             </div>
-                            <h5>{bracketData[bracketIndex].seed}</h5>
-                            <h5>{bracketData[bracketIndex].name}</h5>
+                            <div className="description">
+                                <p className="seed">{bracketData[bracketIndex].seed}</p>
+                                <p className="name">{bracketData[bracketIndex].name}</p>
+                            </div>
                         </div>
-                        <div className="matchup-right">
-                            <div className="matchup-right-image" onClick={() => iterateMatchup(bracketData[bracketIndex+1])}>
-                                <img
+                        <div className="matchup-item">
+                            <div className="matchup-image" onClick={() => iterateMatchup(bracketData[bracketIndex+1])}>
+                                <img className="img"
                                 style={{width:"100%"}}
                                 src={bracketData[bracketIndex+1].image}
                                 alt={bracketData[bracketIndex+1].name}
                                 />
                             </div>
-                            <h5>{bracketData[bracketIndex+1].seed}</h5>
-                            <h5>{bracketData[bracketIndex+1].name}</h5>
+                            <div className="description">
+                                <p className="seed">{bracketData[bracketIndex+1].seed}</p>
+                                <p className="name">{bracketData[bracketIndex+1].name}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                :
-                <div className="final-bracket">
-                    <h1>Winner!</h1>
+                    :
                     <div className="matchup-winner">
-                        <img
-                        style={{width:"100%"}}
-                        src={bracketData[bracketData.length-1].image}
-                        alt={bracketData[bracketData.length-1].name}
-                        />
+                        {/* <h1>Winner!</h1> */}
+                        <div className="image">
+                            <img className="img"
+                            style={{width:"100%"}}
+                            src={bracketData[bracketData.length-1].image}
+                            alt={bracketData[bracketData.length-1].name}
+                            />
+                        </div>
+                        <div className="description">
+                            <p className="seed">{bracketData[bracketData.length-1].seed}</p>
+                            <p className="name">{bracketData[bracketData.length-1].name}</p>
+                        </div>
                     </div>
-                    <h5>{bracketData[bracketData.length-1].seed}</h5>
-                    <h5>{bracketData[bracketData.length-1].name}</h5>
+                }
+                <div className="bracket">
+                    <div className = "bracketColumnEight">
+                        {bracketData.slice(0, 4).map(musicObject => (
+                        <div className='bracket-item'>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={musicObject.image}
+                                alt={musicObject.name}
+                                />
+                            </div>
+                            <div className='description'>
+                                <p className="seed">{musicObject.seed} </p>
+                                <p className="name">{musicObject.name}</p>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
+                    <div className = "bracketColumnFour">
+                        <div className='bracket-item-four-left'>
+                            {bracketData[8].name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={bracketData[8].image}
+                                alt={bracketData[8].name}
+                                />
+                            </div>
+                            {/* <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div> */}
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                        </div>
+                        <div className='bracket-item-two-left'>
+                            {bracketData[12].name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"75%"}}
+                                src={bracketData[12].image}
+                                alt={bracketData[12].name}
+                                />
+                            </div>
+                            {/* <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div> */}
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                        </div>
+                        <div className='bracket-item-four-left'>
+                            {bracketData[9].name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={bracketData[9].image}
+                                alt={bracketData[9].name}
+                                />
+                            </div>
+                            {/* <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div> */}
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                        </div>
+                    {/* {bracketData.slice(8, 10).map(musicObject => (
+            
+                            <div className='bracket-item'>
+                                {musicObject.name !== null  ?<>
+                                <div className='image'>
+                                    <img className="img"
+                                    style={{width:"100%"}}
+                                    src={musicObject.image}
+                                    alt={musicObject.name}
+                                    />
+                                </div>
+                                <div className='description'>
+                                    <p className="seed">{musicObject.seed}</p>
+                                    <p className="name">{musicObject.name}</p>
+                                </div>
+                                </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                            </div>
+            
+                        ))} */}
+                    </div>
+                    {/* <div className = "bracketColumnTwo">
+                    {bracketData.slice(12, 13).map(musicObject => (
+                        <div className='bracket-item'>
+                            {musicObject.name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={musicObject.image}
+                                alt={musicObject.name}
+                                />
+                            </div>
+                            <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div>
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                        </div>
+                        ))}
+                    </div> */}
+                    {/* <div className = "bracketColumnTwo">
+                    {bracketData.slice(13, 14).map(musicObject => (
+                        <div className='bracket-item'>
+                            {musicObject.name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={musicObject.image}
+                                alt={musicObject.name}
+                                />
+                            </div>
+                            <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div>
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                        </div>
+                        ))}
+                    </div> */}
+                    <div className = "bracketColumnFour">
+                    <div className='bracket-item-four-right'>
+                            {bracketData[10].name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={bracketData[10].image}
+                                alt={bracketData[10].name}
+                                />
+                            </div>
+                            {/* <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div> */}
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                        </div>
+                        <div className='bracket-item-two-right'>
+                            {bracketData[13].name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"75%"}}
+                                src={bracketData[13].image}
+                                alt={bracketData[13].name}
+                                />
+                            </div>
+                            {/* <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div> */}
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                        </div>
+                        <div className='bracket-item-four-right'>
+                            {bracketData[11].name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={bracketData[11].image}
+                                alt={bracketData[11].name}
+                                />
+                            </div>
+                            {/* <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div> */}
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                        </div>
+                    {/* {bracketData.slice(10, 12).map(musicObject => (
+                        <div className='bracket-item'>
+                            {musicObject.name !== null  ?<>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={musicObject.image}
+                                alt={musicObject.name}
+                                />
+                            </div>
+                            <div className='description'>
+                                <p className="seed">{musicObject.seed}</p>
+                                <p className="name">{musicObject.name}</p>
+                            </div>
+                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                        </div>
+                        ))} */}
+                    </div>
+                    <div className = "bracketColumnEight">
+                    {bracketData.slice(4, 8).map(musicObject => (
+                        <div className='bracket-item'>
+                            <div className='image'>
+                                <img className="img"
+                                style={{width:"100%"}}
+                                src={musicObject.image}
+                                alt={musicObject.name}
+                                />
+                            </div>
+                            <div className='description'>
+                                <p className="seed">{musicObject.seed} </p>
+                                <p className="name">{musicObject.name}</p>
+                            </div>
+                        </div>
+                        ))}
+                    </div>
                 </div>
-            }
-            <div className="bracket">
-                <div className = "bracketLeftColumn1">
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[0].image}
-                            alt={bracketData[0].name}
-                            />
-                        </div>
-                        <h5>{bracketData[0].seed}</h5>
-                        <h5>{bracketData[0].name}</h5>
-                    </div>
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[1].image}
-                            alt={bracketData[1].name}
-                            />
-                        </div>
-                        <h5>{bracketData[1].seed}</h5>
-                        <h5>{bracketData[1].name}</h5>
-                    </div>
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[2].image}
-                            alt={bracketData[2].name}
-                            />
-                        </div>
-                        <h5>{bracketData[2].seed}</h5>
-                        <h5>{bracketData[2].name}</h5>
-                    </div>
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[3].image}
-                            alt={bracketData[3].name}
-                            />
-                        </div>
-                        <h5>{bracketData[3].seed}</h5>
-                        <h5>{bracketData[3].name}</h5>
-                    </div>
-                </div>
-                <div className = "bracketLeftColumn2">
-                    {bracketData.length > 8 ? 
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[8].image}
-                            alt={bracketData[8].name}
-                            />
-                        </div>
-                        <h5>{bracketData[8].seed}</h5>
-                        <h5>{bracketData[8].name}</h5>
-                    </div> : 
-                    <></>}
-                    {bracketData.length > 9 ? 
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[9].image}
-                            alt={bracketData[9].name}
-                            />
-                        </div>
-                        <h5>{bracketData[9].seed}</h5>
-                        <h5>{bracketData[9].name}</h5>
-                    </div>: 
-                    <></>}
-                </div>
-                <div className = "bracketLeftColumn3">
-                    {bracketData.length > 12 ? 
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[12].image}
-                            alt={bracketData[12].name}
-                            />
-                        </div>
-                        <h5>{bracketData[12].seed}</h5>
-                        <h5>{bracketData[12].name}</h5>
-                    </div> : 
-                    <></>}
-                </div>
-                <div className = "bracketLeftColumn4">
-                    {bracketData.length > 13 ? 
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[13].image}
-                            alt={bracketData[13].name}
-                            />
-                        </div>
-                        <h5>{bracketData[13].seed}</h5>
-                        <h5>{bracketData[13].name}</h5>
-                    </div> : 
-                    <></>}
-                </div>
-                <div className = "bracketLeftColumn5">
-                    {bracketData.length > 10 ? 
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[10].image}
-                            alt={bracketData[10].name}
-                            />
-                        </div>
-                        <h5>{bracketData[10].seed}</h5>
-                        <h5>{bracketData[10].name}</h5>
-                    </div> : 
-                    <></>}
-                    {bracketData.length > 11 ? 
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[11].image}
-                            alt={bracketData[11].name}
-                            />
-                        </div>
-                        <h5>{bracketData[11].seed}</h5>
-                        <h5>{bracketData[11].name}</h5>
-                    </div>: 
-                    <></>}
-                </div>
-                <div className = "bracketLeftColumn6">
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[4].image}
-                            alt={bracketData[4].name}
-                            />
-                        </div>
-                        <h5>{bracketData[4].seed}</h5>
-                        <h5>{bracketData[4].name}</h5>
-                    </div>
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[5].image}
-                            alt={bracketData[5].name}
-                            />
-                        </div>
-                        <h5>{bracketData[5].seed}</h5>
-                        <h5>{bracketData[5].name}</h5>
-                    </div>
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[6].image}
-                            alt={bracketData[6].name}
-                            />
-                        </div>
-                        <h5>{bracketData[6].seed}</h5>
-                        <h5>{bracketData[6].name}</h5>
-                    </div>
-                    <div>
-                        <div>
-                            <img
-                            style={{width:"25%"}}
-                            src={bracketData[7].image}
-                            alt={bracketData[7].name}
-                            />
-                        </div>
-                        <h5>{bracketData[7].seed}</h5>
-                        <h5>{bracketData[7].name}</h5>
-                    </div>
-                </div>
+                <button onClick={() => window.location.reload()}>Back to Home</button>
             </div>
-            <button onClick={() => window.location.reload()}>Back to {trackOrArtist === 'track' ? 'artist' : 'track'}</button>
         </div>
     );
 }

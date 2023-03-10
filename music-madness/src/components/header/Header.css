@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0px;
+    margin-bottom: 20px;
+    /* border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 2px; */
+  }
+  
+  .header-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }

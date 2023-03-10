@@ -1,0 +1,61 @@
+.preview-grid {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.preview-grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.preview-grid-item img {
+    max-width: 100%;
+    height: auto;
+}
+  
+.preview-grid-item .description p {
+    margin: 0;
+    display: inline-block;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+  
+.image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img {
+    border-radius: 10px;
+}
+.description {
+    width: 100%;
+    /* flex: 1; */
+    display: flex;
+    flex-direction: row;
+    /* align-items: stretch; */
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+.seed {
+    /* align-self: left; */
+    text-align: left;
+    padding-left: 3px;
+    /* flex: 1 */
+}
+.name {
+    /* flex: 4; */
+    width: 100%;
+    margin-left: auto;
+    justify-self: stretch;
+    text-align: center;
+    padding-right: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+  

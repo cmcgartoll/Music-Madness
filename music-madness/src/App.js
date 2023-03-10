@@ -5,6 +5,7 @@ import Bracket from './components/bracket/Bracket.js';
 import { MusicProvider } from './context/MusicContext.js';
 import Login from './pages/login.js';
 import Home from './pages/home.js';
+import Header from './components/header/Header.js';
 
 function App() {
   useEffect(()=>{
@@ -17,6 +18,7 @@ function App() {
       </MusicProvider> */}
       
       <Router>
+        <Header/>
         <MusicProvider>
           <Routes>
             <Route path="/" exact element={<Login />} />

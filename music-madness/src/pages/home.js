@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import MusicContext from '../context/MusicContext.js';
-import MusicObject from '../components/music-object/MusicObject.js';
 import Bracket from '../components/bracket/Bracket.js';
 import PreviewGrid from '../components/preview_grid/PreviewGrid.js';
 
