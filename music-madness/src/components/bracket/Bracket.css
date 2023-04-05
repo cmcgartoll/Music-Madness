@@ -1,8 +1,8 @@
 .bracket-page {
     background-image: url('../../images/bracket-lines.png');
-    background-size: 50% 60%;
+    background-size: 53% 58%;
     background-repeat: no-repeat;
-    background-position: calc(50% - 5px)  calc(50% + 60px) ;
+    background-position: calc(50%)  calc(50% + 18vw) ;
     /* background-origin: padding-box; */
     /* margin-left: 10%;
     margin-right: 10%; */
@@ -14,17 +14,35 @@
     flex-direction: row;
     align-items: top;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 5vw;
 }
 .matchup-item {
     width: 45%;
-    margin: 5px;
+    margin: 1vw;
 }
 .matchup-item .description p {
     margin: 0;
     display: inline-block;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     line-height: 1.2;
+}
+.matchup-item .seed {
+    text-align: left;
+    font-size: 2rem;
+    padding-right: 0.25vw;
+}
+.matchup-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 0.5vw;
+}
+.matchup-image .img {
+    height: 45vw;
+    width: 45vw;
+    object-fit: cover;
 }
 
 /* Bracket */
@@ -36,6 +54,9 @@
     padding-left: 3%;
     padding-right: 3%;
     
+}
+.bracketColumnFour .img {
+    filter: brightness(75%);
 }
 .bracketColumnEight {
     display: flex;
@@ -57,7 +78,7 @@
     align-items: center;
     justify-items: space-between;
     /* height: 100%; */
-    padding-bottom: 30px;
+    padding-bottom: 7vw;
 }
 /* .bracketColumnTwo {
     display: flex;
@@ -82,14 +103,6 @@
     /* align-self: center; */
     margin-right: auto;
     /* margin-top:auto */
-}
-.bracket-item-two-left {
-    flex: 1;
-    width: 80%;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    /* justify-self: center; */
-    /* align-self: center; */
     margin-left: auto;
 }
 .bracket-item-four-right {
@@ -98,15 +111,51 @@
     /* justify-self: center; */
     /* align-self: center; */
     margin-left: auto;
+    margin-right: auto;
+}
+.bracket-item-two-left {
+    flex: 1;
+    width: 80%;
+    margin-top: 12vw;
+    margin-bottom: 12vw;
+    /* justify-self: center; */
+    /* align-self: center; */
+    margin-left: auto;
 }
 .bracket-item-two-right {
     flex: 1;
     width: 80%;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 12vw;
+    margin-bottom: 12vw;
     /* justify-self: center; */
     /* align-self: center; */
     margin-right: auto;
+}
+
+.bracketColumnEight .img{
+    height: 19vw;
+    justify-self: center;
+    align-self: center;
+}
+.bracketColumnFour .img{
+    height: 15vw;
+    width: 15vw;
+    justify-self: center;
+    align-self: center;
+}
+.bracket-item-two-left .img{
+    height: 12vw;
+    width: 12vw;
+    align-self: center;
+    margin-left: auto;
+    margin-right: 1vw;
+}
+.bracket-item-two-right .img{
+    height: 12vw;
+    width: 12vw;
+    align-self: center;
+    margin-right: auto;
+    margin-left: 1vw;
 }
 .bracket-item .description p {
     margin: 0;
@@ -118,6 +167,11 @@
 .image {
     width: 100%;
     object-fit: contain;
+    margin-bottom: 0.1vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 .description {
     display: flex;
@@ -126,10 +180,11 @@
 .bracketColumnEight .seed {
     text-align: left;
     font-size: 1.5rem;
+    padding-right: 0.25vw;
 }
 .bracketColumnEight .name {
     font-size: 0.5rem;
-    padding-top: 3px;
+    padding-top: 0.7vw;
     width: 100%;
     margin-left: auto;
     justify-self: stretch;
@@ -137,17 +192,65 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    color: white;
 }
 
 
 .matchup-winner {
-    padding-left: 20%;
-    padding-right: 20%;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-bottom: 2vw;
+}
+
+.matchup-winner .image {
+    overflow: hidden;
+    margin-bottom: 0.5vw;
+}
+
+.matchup-winner .img {
+    height: 45vw;
+    width: 45vw;
+    object-fit: cover;
 }
 
 .matchup-winner .description p {
     margin: 0;
     display: inline-block;
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
     line-height: 1.2;
+}
+.fake-two {
+    height: 12vw;
+    width: 12vw;
+    margin-bottom: 0.1vw;
+}
+.fake-four {
+    height: 15vw;
+    width: 15vw;
+    margin-bottom: 0.1vw;
+}
+
+.matchup-item .seed {
+    text-align: left;
+    font-size: 1.5rem;
+    padding-right: 0.25vw;
+}
+.matchup-winner .seed {
+    text-align: left;
+    font-size: 1.5rem;
+    padding-right: 0.25vw;
+}
+.winner-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.winner-pretext{
+    margin: 0vw;
+    font-size: 1rem;
+}
+.winner-text{
+    margin: 0vw;
+    font-size: 1.7rem;
+    font-weight: bold;
 }

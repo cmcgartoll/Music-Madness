@@ -28,15 +28,11 @@ export default function Bracket(props) {
         console.log(bracketData);
         console.log(bracketIndex);
     }
-    
-    useEffect(() => {
-        console.log(bracketData);
-    }, [bracketData])
 
     return (
 
         <div>
-            <div className="bracket-page">
+            <div className="bracket-page" id="bracket-page">
                 {bracketData[14].name === null ?
                     <div className="matchup">
                         <div className="matchup-item">
@@ -69,17 +65,21 @@ export default function Bracket(props) {
                     :
                     <div className="matchup-winner">
                         {/* <h1>Winner!</h1> */}
+                        <div className="winner-description">
+                            <p className="winner-pretext">your winner:</p>
+                            <p className="winner-text">{bracketData[bracketData.length-1].name}</p>
+                        </div>
                         <div className="image">
                             <img className="img"
-                            style={{width:"100%"}}
+                            // style={{width:"100%"}}
                             src={bracketData[bracketData.length-1].image}
                             alt={bracketData[bracketData.length-1].name}
                             />
                         </div>
-                        <div className="description">
+                        {/* <div className="description">
                             <p className="seed">{bracketData[bracketData.length-1].seed}</p>
                             <p className="name">{bracketData[bracketData.length-1].name}</p>
-                        </div>
+                        </div> */}
                     </div>
                 }
                 <div className="bracket">
@@ -105,7 +105,7 @@ export default function Bracket(props) {
                             {bracketData[8].name !== null  ?<>
                             <div className='image'>
                                 <img className="img"
-                                style={{width:"100%"}}
+                                // style={{width:"100%"}}
                                 src={bracketData[8].image}
                                 alt={bracketData[8].name}
                                 />
@@ -114,13 +114,13 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div> */}
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                            </>:<Box className='fake-four' sx={{backgroundColor: 'transparent',}}></Box>}
                         </div>
                         <div className='bracket-item-two-left'>
                             {bracketData[12].name !== null  ?<>
                             <div className='image'>
                                 <img className="img"
-                                style={{width:"75%"}}
+                                // style={{width:"100%"}}
                                 src={bracketData[12].image}
                                 alt={bracketData[12].name}
                                 />
@@ -129,13 +129,13 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div> */}
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                            </>:<Box className='fake-two' sx={{backgroundColor: 'transparent',}}></Box>}
                         </div>
                         <div className='bracket-item-four-left'>
                             {bracketData[9].name !== null  ?<>
                             <div className='image'>
                                 <img className="img"
-                                style={{width:"100%"}}
+                                // style={{width:"100%"}}
                                 src={bracketData[9].image}
                                 alt={bracketData[9].name}
                                 />
@@ -144,7 +144,7 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div> */}
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                            </>:<Box className='fake-four' sx={{backgroundColor: 'transparent',}}></Box>}
                         </div>
                     {/* {bracketData.slice(8, 10).map(musicObject => (
             
@@ -161,7 +161,7 @@ export default function Bracket(props) {
                                     <p className="seed">{musicObject.seed}</p>
                                     <p className="name">{musicObject.name}</p>
                                 </div>
-                                </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                                </>:<Box sx={{backgroundColor: 'white',}}></Box>}
                             </div>
             
                         ))} */}
@@ -181,7 +181,7 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div>
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                            </>:<Box sx={{backgroundColor: 'white',}}></Box>}
                         </div>
                         ))}
                     </div> */}
@@ -200,7 +200,7 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div>
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                            </>:<Box sx={{backgroundColor: 'white',}}></Box>}
                         </div>
                         ))}
                     </div> */}
@@ -209,7 +209,7 @@ export default function Bracket(props) {
                             {bracketData[10].name !== null  ?<>
                             <div className='image'>
                                 <img className="img"
-                                style={{width:"100%"}}
+                                // style={{width:"100%"}}
                                 src={bracketData[10].image}
                                 alt={bracketData[10].name}
                                 />
@@ -218,13 +218,13 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div> */}
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                            </>:<Box className='fake-four'  sx={{backgroundColor: 'transparent',}}></Box>}
                         </div>
                         <div className='bracket-item-two-right'>
                             {bracketData[13].name !== null  ?<>
                             <div className='image'>
                                 <img className="img"
-                                style={{width:"75%"}}
+                                // style={{width:"75%"}}
                                 src={bracketData[13].image}
                                 alt={bracketData[13].name}
                                 />
@@ -233,13 +233,13 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div> */}
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                            </>:<Box className='fake-two' sx={{backgroundColor: 'transparent',}}></Box>}
                         </div>
                         <div className='bracket-item-four-right'>
                             {bracketData[11].name !== null  ?<>
                             <div className='image'>
                                 <img className="img"
-                                style={{width:"100%"}}
+                                // style={{width:"100%"}}
                                 src={bracketData[11].image}
                                 alt={bracketData[11].name}
                                 />
@@ -248,7 +248,7 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div> */}
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'transparent',}}></Box>}
+                            </>:<Box className='fake-four' sx={{backgroundColor: 'transparent',}}></Box>}
                         </div>
                     {/* {bracketData.slice(10, 12).map(musicObject => (
                         <div className='bracket-item'>
@@ -264,7 +264,7 @@ export default function Bracket(props) {
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
                             </div>
-                            </>:<Box sx={{width: '100%', height: 68.1, backgroundColor: 'white',}}></Box>}
+                            </>:<Box sx={{backgroundColor: 'white',}}></Box>}
                         </div>
                         ))} */}
                     </div>
@@ -286,7 +286,6 @@ export default function Bracket(props) {
                         ))}
                     </div>
                 </div>
-                <button onClick={() => window.location.reload()}>Back to Home</button>
             </div>
         </div>
     );

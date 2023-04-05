@@ -4,9 +4,41 @@
     align-items: center;
     padding-bottom: 0px;
     margin-bottom: 20px;
+    margin-top: 20px;
+    height: 50px;
+    viewport-fit: cover;
     /* border-bottom-style: solid;
     border-bottom-color: black;
     border-bottom-width: 2px; */
+  }
+
+  .header-logo {
+    height: 100%;
+  }
+  .home-button {
+    margin-left: 3vw;
+    margin-right: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logout-button {
+    margin-left: auto;
+    margin-right: 3vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logo-img {
+    height: 100%;
+  }
+  .home-icon {
+    height: 60%;
+  }
+  .logout-icon {
+    height: 60%;
   }
   
   .header-title {

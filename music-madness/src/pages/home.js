@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import MusicContext from '../context/MusicContext.js';
 import Bracket from '../components/bracket/Bracket.js';
 import PreviewGrid from '../components/preview_grid/PreviewGrid.js';
+import CustomButton from '../components/button/Button.js';
 
 export default function Home() {
     const {artistData, setArtistData, trackData, setTrackData, logout} = useContext(MusicContext);
@@ -23,13 +24,11 @@ export default function Home() {
                             {trackOrArtist === 'track' ?
                                 <div>
                                     <PreviewGrid data={trackData}/>
-                                    <button onClick={() => {setTrackOrArtist(null)}}>Back</button>
-                                    <button onClick={() => {setMakeBracket(true)}}>Rate the Bracket!</button>
+                                    <CustomButton className='start-bracket-button' text="start the bracket!" onClick={() => {setMakeBracket(true)}}/>
                                 </div> :
                                 <div>
                                     <PreviewGrid data={artistData}/>
-                                    <button onClick={() => {setTrackOrArtist(null)}}>Back</button>
-                                    <button onClick={() => {setMakeBracket(true)}}>Rate the Bracket!</button>
+                                    <CustomButton className='start-bracket-button' text="start the bracket!" onClick={() => {setMakeBracket(true)}}/>
                                 </div>
                             }
                             
@@ -38,9 +37,6 @@ export default function Home() {
                 </div>
                 
             }
-            <div>
-                <button onClick={logout}>Logout</button>
-            </div>
         </div>
     )
 }

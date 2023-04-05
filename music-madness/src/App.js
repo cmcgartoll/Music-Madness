@@ -18,8 +18,8 @@ function App() {
       </MusicProvider> */}
       
       <Router>
-        <Header/>
         <MusicProvider>
+          <Header/>
           <Routes>
             <Route path="/" exact element={<Login />} />
             {/* <Route path = '/home' exact element ={<Home/>}/>

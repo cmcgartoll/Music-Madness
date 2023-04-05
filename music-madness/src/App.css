@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  height: 100vh;
+  overflow-x: hidden;
+  viewport-fit: cover;
 }
 
 .App-logo {

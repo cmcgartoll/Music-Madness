@@ -8,19 +8,22 @@ export default function PreviewGrid(props) {
 
     return (
         <div className='preview-grid'>
-            <Grid container spacing={1} columnSpacing={{xs: 3}}>
+            <p className='preview-title'>here's the seeding for your bracket!</p>
+            <Grid container spacing={0} columnSpacing={{xs: 0}}>
                 {data.map(musicObject => (
                     <Grid item xs={6} key={musicObject.key} >
                     <div className='preview-grid-item'>
-                        <div className='image'>
-                            <img className='img'
-                            src={musicObject.image}
-                            alt={musicObject.name}
-                            />
-                        </div>
-                        <div className='description'>
-                            <p className='seed'>{musicObject.seed}.</p>
-                            <p className='name'>{musicObject.name}</p>
+                        <div className='preview-grid-item-box'>
+                            <div className='image'>
+                                <img className='img'
+                                src={musicObject.image}
+                                alt={musicObject.name}
+                                />
+                            </div>
+                            <div className='description'>
+                                <p className='seed'>{musicObject.seed}</p>
+                                <p className='name'>{musicObject.name}</p>
+                            </div>
                         </div>
                     </div>
                     </Grid>
