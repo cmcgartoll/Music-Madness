@@ -4,6 +4,7 @@ import MusicContext from '../context/MusicContext.js';
 import {AUTH_ENDPOINT, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, RESPONSE_TYPE} from '../constants.js';
 import Home from './home.js';
 import './login.css';
+import CustomButton from '../components/button/Button.js';
 
 export default function Login() {
     const {artistData, setArtistData, token, setToken, trackData, setTrackData} = useContext(MusicContext);
@@ -12,15 +13,15 @@ export default function Login() {
         console.log('Login');
         const hash = window.location.hash;
         let token = "";
-        if (localStorage.getItem("token")) {
-            setToken(localStorage.getItem("token"));
+        if (sessionStorage.getItem("token")) {
+            setToken(sessionStorage.getItem("token"));
         }
 
         if (!token && hash ) {
             token = hash.substring(1).split("&").find((elem) => elem.startsWith('access_token')).split("=")[1]
             console.log(token);
             window.location.hash = "";
-            localStorage.setItem("token", token);
+            sessionStorage.setItem("token", token);
             setToken(token);
         }
     })
@@ -38,6 +39,7 @@ export default function Login() {
                         "name": artist.name,
                         "image": artist.images[0].url,
                         "seed": index+1,
+                        "link":artist.external_urls.spotify,
                         "detail2":artist.genres[0]
                     }
                 )))
@@ -53,6 +55,7 @@ export default function Login() {
                         "name": track.name,
                         "image": track.album.images[0].url,
                         "seed": index+1,
+                        "link":track.external_urls.spotify,
                         "detail2": track.artists[0].name
                     }
                 )))
@@ -64,7 +67,11 @@ export default function Login() {
         <div className="App">
             {!token ?
                 <div className='login-page'>
-                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${encodeURIComponent('user-read-private user-library-read user-top-read')}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify </a>
+                    <p style={{fontWeight: 'bold'}}>welcome to music madness!</p>
+                    <p style={{color: 'white'}}>login in to your spotify below to create a personalized bracket based on your top tracks and artists!</p>
+                    <div className='login-button' >
+                        <CustomButton text = 'login to spotify' onClick={() => window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${encodeURIComponent('user-read-private user-library-read user-top-read')}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}/>
+                    </div>
                 </div>: 
                 <Home/>
             }

@@ -2,7 +2,14 @@
     padding-left: 5vw;
     padding-right: 5vw;
 }
+a {
+    text-decoration: none; /* Remove underline */
+    cursor: default; /* Remove cursor change when hovering */
+    outline: none; /* Remove outline when clicked */
+  }
 .preview-title {
+    margin: 0;
+    margin-bottom: 1vw;
     text-align: center;
     font-size: 1.5rem;
 }
@@ -36,8 +43,11 @@
     overflow: hidden;
     margin-bottom: 0.5vw;
 }
+.preview-grid .name {
+    font-size: 0.6rem;
+}
 .img {
-    border-radius: 10px;
+    border-radius: 5px;
     object-fit: cover;
 }
 .description {
@@ -58,7 +68,7 @@
 }
 .name {
     /* flex: 4; */
-    font-size: 0.6rem;
+    /* font-size: 0.6rem; */
     width: 100%;
     margin-left: auto;
     justify-self: stretch;

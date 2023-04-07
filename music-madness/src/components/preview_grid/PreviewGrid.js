@@ -14,15 +14,17 @@ export default function PreviewGrid(props) {
                     <Grid item xs={6} key={musicObject.key} >
                     <div className='preview-grid-item'>
                         <div className='preview-grid-item-box'>
-                            <div className='image'>
-                                <img className='img'
-                                src={musicObject.image}
-                                alt={musicObject.name}
-                                />
-                            </div>
+                            <a href={musicObject.link}>
+                                <div className='image'>
+                                    <img className='img'
+                                    src={musicObject.image}
+                                    alt={musicObject.name}
+                                    />
+                                </div>
+                            </a>
                             <div className='description'>
                                 <p className='seed'>{musicObject.seed}</p>
-                                <p className='name'>{musicObject.name}</p>
+                                <a className='name' href={musicObject.link}>{musicObject.name}</a>
                             </div>
                         </div>
                     </div>

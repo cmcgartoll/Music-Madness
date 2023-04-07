@@ -1,4 +1,10 @@
 .login-page {
+    margin-top: 15vw;
     text-align: center;
     justify-items: center;
+    font-size: 1.5rem;
+}
+
+.login-button {
+    margin-top: 10vw;
 }

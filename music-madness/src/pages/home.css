@@ -1,0 +1,48 @@
+.start-bracket-button {
+    margin-top: 3vw;
+    justify-self: center;
+    margin-bottom: 5vw;
+}
+.home-description {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.preview-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.home-page {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+.music-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.artist-button {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.track-button {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.spotify-logo-div {
+    margin-top: 5vw;
+    width: 30vw;
+}
+.spotify-logo {
+    width: 100%;
+}

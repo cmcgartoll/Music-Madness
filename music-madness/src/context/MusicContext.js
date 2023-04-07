@@ -7,7 +7,7 @@ export default MusicContext;
 
 export const MusicProvider = ({children}) => {
     const [token, setToken] = useState(
-        localStorage.getItem("token") || null
+        sessionStorage.getItem("token") || null
     );
     const [artistData, setArtistData] = useState([]);
     const [trackData, setTrackData] = useState([]);
@@ -16,7 +16,7 @@ export const MusicProvider = ({children}) => {
 
     const logout = () => {
         setToken(null);
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         window.location.reload('false');
     }
 

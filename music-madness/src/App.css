@@ -2,7 +2,6 @@
   text-align: center;
   height: 100vh;
   overflow-x: hidden;
-  viewport-fit: cover;
 }
 
 .App-logo {
@@ -38,4 +37,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+a {
+  text-decoration: none; /* Remove underline */
+  cursor: default; /* Remove cursor change when hovering */
+  outline: none; /* Remove outline when clicked */
 }

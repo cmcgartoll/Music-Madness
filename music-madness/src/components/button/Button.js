@@ -2,15 +2,16 @@ import React from 'react';
 import './Button.css';
 
 function CustomButton(props) {
-  const { text, onClick } = props;
+  const { text, onClick, fontSize} = props;
   
   const buttonStyle = {
     backgroundColor: '#E9F907',
     color: '#1D1D1D',
-    padding: '10px 10px',
-    borderRadius: '6px',
+    padding: '8px 10px',
+    borderRadius: '20px',
     border: 'none',
     cursor: 'pointer',
+    fontSize: fontSize || 'inherit',
   };
 
   return (

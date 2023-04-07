@@ -31,7 +31,8 @@ export default function Bracket(props) {
 
     return (
 
-        <div>
+        <div className="bracket-entire-page">
+            {bracketData[14].name === null ? <p className="bracket-text-description">choose the winner in each matchup by clicking on your choice at the top!</p>: <></>}
             <div className="bracket-page" id="bracket-page">
                 {bracketData[14].name === null ?
                     <div className="matchup">
@@ -44,10 +45,11 @@ export default function Bracket(props) {
                                 />
                             </div>
                             <div className="description">
-                                <p className="seed">{bracketData[bracketIndex].seed}</p>
-                                <p className="name">{bracketData[bracketIndex].name}</p>
+                                {/* <p className="seed">{bracketData[bracketIndex].seed}</p> */}
+                                <a href={bracketData[bracketIndex].link} className="name">{bracketData[bracketIndex].name}</a>
                             </div>
                         </div>
+                        <p className="vs">vs</p>
                         <div className="matchup-item">
                             <div className="matchup-image" onClick={() => iterateMatchup(bracketData[bracketIndex+1])}>
                                 <img className="img"
@@ -57,8 +59,8 @@ export default function Bracket(props) {
                                 />
                             </div>
                             <div className="description">
-                                <p className="seed">{bracketData[bracketIndex+1].seed}</p>
-                                <p className="name">{bracketData[bracketIndex+1].name}</p>
+                                {/* <p className="seed">{bracketData[bracketIndex+1].seed}</p> */}
+                                <a href={bracketData[bracketIndex+1].link} className="name">{bracketData[bracketIndex+1].name}</a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +68,7 @@ export default function Bracket(props) {
                     <div className="matchup-winner">
                         {/* <h1>Winner!</h1> */}
                         <div className="winner-description">
-                            <p className="winner-pretext">your winner:</p>
+                            <p className="winner-pretext">your bracket winner:</p>
                             <p className="winner-text">{bracketData[bracketData.length-1].name}</p>
                         </div>
                         <div className="image">
@@ -95,7 +97,7 @@ export default function Bracket(props) {
                             </div>
                             <div className='description'>
                                 <p className="seed">{musicObject.seed} </p>
-                                <p className="name">{musicObject.name}</p>
+                                <a className='name' href={musicObject.link}>{musicObject.name}</a>
                             </div>
                         </div>
                         ))}
@@ -280,13 +282,15 @@ export default function Bracket(props) {
                             </div>
                             <div className='description'>
                                 <p className="seed">{musicObject.seed} </p>
-                                <p className="name">{musicObject.name}</p>
+                                <a className='name' href={musicObject.link}>{musicObject.name}</a>
                             </div>
                         </div>
                         ))}
                     </div>
                 </div>
+                
             </div>
+            
         </div>
     );
 }
