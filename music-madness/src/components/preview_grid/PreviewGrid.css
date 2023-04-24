@@ -44,10 +44,10 @@ a {
     margin-bottom: 0.5vw;
 }
 .preview-grid .name {
-    font-size: 0.6rem;
+    font-size: 2.25vw;
 }
 .img {
-    border-radius: 5px;
+    /* border-radius: 5px; */
     object-fit: cover;
 }
 .description {
@@ -59,11 +59,17 @@ a {
     /* align-items: center; */
     /* justify-content: center; */
 }
+.preview-grid .description {
+    height: 5.5vw;
+    overflow: hidden;
+    margin-bottom: 1vw;
+}
 .seed {
     /* align-self: left; */
     text-align: left;
     padding-left: 3px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding-right: 0.25vw;
     /* flex: 1 */
 }
 .name {
@@ -75,9 +81,12 @@ a {
     text-align: center;
     padding-right: 3px;
     text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
     color: white;
+}
+.preview-grid .name {
+    padding-top: 0.25vw;
+    overflow: hidden;
+    /* white-space: nowrap; */
 }
 
 

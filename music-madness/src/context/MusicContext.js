@@ -17,7 +17,9 @@ export const MusicProvider = ({children}) => {
     const logout = () => {
         setToken(null);
         sessionStorage.removeItem("token");
-        window.location.reload('false');
+        const spotifyLogoutWindow = window.open('https://accounts.spotify.com/en/logout', 'Spotify Logout', 'width=700,height=500,top=40,left=40')                                                                                                
+        setTimeout(() => spotifyLogoutWindow.close(), 2000)
+        // window.location.reload('false');
     }
 
     const login = () => {

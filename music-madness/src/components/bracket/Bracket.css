@@ -1,11 +1,15 @@
 .bracket-entire-page {
     height: 110vh;
+    width: 100vw;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
 }
 .bracket-page {
     background-image: url('../../images/bracket-lines.png');
-    background-size: 53% 63%;
+    background-size: 54% 60%;
     background-repeat: no-repeat;
-    background-position: calc(50%)  calc(50% + 12vw) ;
+    background-position: calc(50%)  calc(50% + 15vw) ;
     /* background-origin: padding-box; */
     /* margin-left: 10%;
     margin-right: 10%; */
@@ -22,25 +26,25 @@
 .matchup-item {
     width: 35%;
     margin: 1vw;
-    font-size: 0.8rem;
+    font-size: 3vw;
 }
 .vs {
     align-self: center;
     justify-self: center;
 }
-.matchup-item .description p {
-    margin: 0;
+.matchup-item .description a {
+    /* margin-top: 0.25vw; */
     display: inline-block;
-    font-size: 0.8rem;
-    font-weight: bold;
+    /* font-weight: bold; */
     /* color: #E9F907; */
-    line-height: 1.2;
+    line-height: 3.5vw;
 }
-/* .matchup-item .seed {
-    text-align: left;
-    font-size: 2rem;
-    padding-right: 0.25vw;
-} */
+
+.matchup .description {
+    height: 6.5vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .matchup-image {
     flex: 1;
     display: flex;
@@ -65,9 +69,9 @@
     padding-right: 3%;
     
 }
-.bracketColumnFour .img {
+/* .bracketColumnFour .img {
     filter: brightness(75%);
-}
+} */
 .bracketColumnEight {
     display: flex;
     flex-direction: column;
@@ -88,7 +92,7 @@
     align-items: center;
     justify-items: space-between;
     /* height: 100%; */
-    padding-bottom: 7vw;
+    padding-bottom: 5vw;
 }
 /* .bracketColumnTwo {
     display: flex;
@@ -126,8 +130,8 @@
 .bracket-item-two-left {
     flex: 1;
     width: 80%;
-    margin-top: 12vw;
-    margin-bottom: 12vw;
+    margin-top: 10.25vw;
+    margin-bottom: 10.25vw;
     /* justify-self: center; */
     /* align-self: center; */
     margin-left: auto;
@@ -135,8 +139,8 @@
 .bracket-item-two-right {
     flex: 1;
     width: 80%;
-    margin-top: 12vw;
-    margin-bottom: 12vw;
+    margin-top: 10.25vw;
+    margin-bottom: 10.25vw;
     /* justify-self: center; */
     /* align-self: center; */
     margin-right: auto;
@@ -171,8 +175,10 @@
 .bracket-item .description p {
     margin: 0;
     display: inline-block;
-    /* font-size: 0.5rem; */
-    line-height: 1.2;
+    line-height: 1;
+}
+.bracket-item a {
+    line-height: 2.1vw;
 }
 
 .image {
@@ -184,17 +190,22 @@
     justify-content: center;
     align-content: center;
 }
-.description {
+.bracketColumnEight .description {
     display: flex;
     flex-direction: row;
+    height: 4.1vw;
+    overflow:hidden;
+    margin-bottom: 0.6vw;
 }
 .bracketColumnEight .seed {
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 3.75vw;
+    padding-top: 0.25vw;
     padding-right: 0.25vw;
 }
 .bracketColumnEight .name {
-    font-size: 0.4rem;
+    height: 100%;
+    font-size: 1.75vw;
     padding-top: 0.2vw;
     width: 100%;
     margin-left: auto;
@@ -202,7 +213,7 @@
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    white-space:pre-wrap;
     color: white;
 }
 a {
@@ -215,7 +226,7 @@ a {
 .matchup-winner {
     margin-left: 20vw;
     margin-right: 20vw;
-    margin-bottom: 3vw;
+    margin-bottom: 5.5vw;
 }
 
 .matchup-winner .image {
@@ -233,7 +244,7 @@ a {
     margin: 0;
     display: inline-block;
     /* font-size: 1.2rem; */
-    line-height: 1.2;
+    line-height: 1;
 }
 .fake-two {
     height: 12vw;
@@ -248,7 +259,7 @@ a {
 
 .matchup-item .seed {
     text-align: left;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     padding-right: 0.25vw;
 }
 .matchup-winner .seed {
@@ -276,6 +287,16 @@ a {
 .bracket-text-description {
     text-align: center;
     font-size: 1rem;
+    margin-top:2vw;
+    margin-bottom: 2vw;
     margin-left: 5vw;
     margin-right: 5vw;
+}
+.spotify-logo-div {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+.spotify-logo {
+    width: 100%;
 }

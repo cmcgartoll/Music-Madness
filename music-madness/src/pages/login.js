@@ -68,9 +68,9 @@ export default function Login() {
             {!token ?
                 <div className='login-page'>
                     <p style={{fontWeight: 'bold'}}>welcome to music madness!</p>
-                    <p style={{color: 'white'}}>login in to your spotify below to create a personalized bracket based on your top tracks and artists!</p>
+                    <p style={{color: 'white'}}>log in to your spotify below to create a personalized bracket based on your top tracks and artists!</p>
                     <div className='login-button' >
-                        <CustomButton text = 'login to spotify' onClick={() => window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${encodeURIComponent('user-read-private user-library-read user-top-read')}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}/>
+                        <CustomButton text = 'log in to spotify' onClick={() => window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&scope=${encodeURIComponent('user-top-read')}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}/>
                     </div>
                 </div>: 
                 <Home/>

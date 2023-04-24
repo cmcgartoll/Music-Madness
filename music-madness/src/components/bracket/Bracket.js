@@ -3,6 +3,7 @@ import MusicContext from "../../context/MusicContext";
 import './Bracket.css';
 import Box from '@mui/material/Box';
 import { Link } from "react-router-dom";
+import spotify_logo from '../../images/Spotify_Logo_RGB_Green.png'
 
 export default function Bracket(props) {
     const  seedOrder = (data) => {
@@ -71,13 +72,15 @@ export default function Bracket(props) {
                             <p className="winner-pretext">your bracket winner:</p>
                             <p className="winner-text">{bracketData[bracketData.length-1].name}</p>
                         </div>
-                        <div className="image">
-                            <img className="img"
-                            // style={{width:"100%"}}
-                            src={bracketData[bracketData.length-1].image}
-                            alt={bracketData[bracketData.length-1].name}
-                            />
-                        </div>
+                        <a href={bracketData[bracketData.length-1].link}>
+                            <div className="image">
+                                <img className="img"
+                                // style={{width:"100%"}}
+                                src={bracketData[bracketData.length-1].image}
+                                alt={bracketData[bracketData.length-1].name}
+                                />
+                            </div>
+                        </a>
                         {/* <div className="description">
                             <p className="seed">{bracketData[bracketData.length-1].seed}</p>
                             <p className="name">{bracketData[bracketData.length-1].name}</p>
@@ -88,13 +91,15 @@ export default function Bracket(props) {
                     <div className = "bracketColumnEight">
                         {bracketData.slice(0, 4).map(musicObject => (
                         <div className='bracket-item'>
-                            <div className='image'>
-                                <img className="img"
-                                style={{width:"100%"}}
-                                src={musicObject.image}
-                                alt={musicObject.name}
-                                />
-                            </div>
+                            <a href={musicObject.link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    style={{width:"100%"}}
+                                    src={musicObject.image}
+                                    alt={musicObject.name}
+                                    />
+                                </div>
+                            </a>
                             <div className='description'>
                                 <p className="seed">{musicObject.seed} </p>
                                 <a className='name' href={musicObject.link}>{musicObject.name}</a>
@@ -105,13 +110,15 @@ export default function Bracket(props) {
                     <div className = "bracketColumnFour">
                         <div className='bracket-item-four-left'>
                             {bracketData[8].name !== null  ?<>
-                            <div className='image'>
-                                <img className="img"
-                                // style={{width:"100%"}}
-                                src={bracketData[8].image}
-                                alt={bracketData[8].name}
-                                />
-                            </div>
+                            <a href={bracketData[8].link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    // style={{width:"100%"}}
+                                    src={bracketData[8].image}
+                                    alt={bracketData[8].name}
+                                    />
+                                </div>
+                            </a>
                             {/* <div className='description'>
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
@@ -120,13 +127,15 @@ export default function Bracket(props) {
                         </div>
                         <div className='bracket-item-two-left'>
                             {bracketData[12].name !== null  ?<>
-                            <div className='image'>
-                                <img className="img"
-                                // style={{width:"100%"}}
-                                src={bracketData[12].image}
-                                alt={bracketData[12].name}
-                                />
-                            </div>
+                            <a href={bracketData[12].link}>
+                                <div className='image'> 
+                                    <img className="img"
+                                    // style={{width:"100%"}}
+                                    src={bracketData[12].image}
+                                    alt={bracketData[12].name}
+                                    />
+                                </div>
+                            </a>
                             {/* <div className='description'>
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
@@ -135,13 +144,15 @@ export default function Bracket(props) {
                         </div>
                         <div className='bracket-item-four-left'>
                             {bracketData[9].name !== null  ?<>
-                            <div className='image'>
-                                <img className="img"
-                                // style={{width:"100%"}}
-                                src={bracketData[9].image}
-                                alt={bracketData[9].name}
-                                />
-                            </div>
+                            <a href={bracketData[9].link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    // style={{width:"100%"}}
+                                    src={bracketData[9].image}
+                                    alt={bracketData[9].name}
+                                    />
+                                </div>
+                            </a>
                             {/* <div className='description'>
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
@@ -209,13 +220,15 @@ export default function Bracket(props) {
                     <div className = "bracketColumnFour">
                     <div className='bracket-item-four-right'>
                             {bracketData[10].name !== null  ?<>
-                            <div className='image'>
-                                <img className="img"
-                                // style={{width:"100%"}}
-                                src={bracketData[10].image}
-                                alt={bracketData[10].name}
-                                />
-                            </div>
+                            <a href={bracketData[10].link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    // style={{width:"100%"}}
+                                    src={bracketData[10].image}
+                                    alt={bracketData[10].name}
+                                    />
+                                </div>
+                            </a>
                             {/* <div className='description'>
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
@@ -224,13 +237,15 @@ export default function Bracket(props) {
                         </div>
                         <div className='bracket-item-two-right'>
                             {bracketData[13].name !== null  ?<>
-                            <div className='image'>
-                                <img className="img"
-                                // style={{width:"75%"}}
-                                src={bracketData[13].image}
-                                alt={bracketData[13].name}
-                                />
-                            </div>
+                            <a href={bracketData[13].link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    // style={{width:"75%"}}
+                                    src={bracketData[13].image}
+                                    alt={bracketData[13].name}
+                                    />
+                                </div>
+                            </a>
                             {/* <div className='description'>
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
@@ -239,13 +254,15 @@ export default function Bracket(props) {
                         </div>
                         <div className='bracket-item-four-right'>
                             {bracketData[11].name !== null  ?<>
-                            <div className='image'>
-                                <img className="img"
-                                // style={{width:"100%"}}
-                                src={bracketData[11].image}
-                                alt={bracketData[11].name}
-                                />
-                            </div>
+                            <a href={bracketData[11].link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    // style={{width:"100%"}}
+                                    src={bracketData[11].image}
+                                    alt={bracketData[11].name}
+                                    />
+                                </div>
+                            </a>
                             {/* <div className='description'>
                                 <p className="seed">{musicObject.seed}</p>
                                 <p className="name">{musicObject.name}</p>
@@ -273,13 +290,15 @@ export default function Bracket(props) {
                     <div className = "bracketColumnEight">
                     {bracketData.slice(4, 8).map(musicObject => (
                         <div className='bracket-item'>
-                            <div className='image'>
-                                <img className="img"
-                                style={{width:"100%"}}
-                                src={musicObject.image}
-                                alt={musicObject.name}
-                                />
-                            </div>
+                            <a href={musicObject.link}>
+                                <div className='image'>
+                                    <img className="img"
+                                    style={{width:"100%"}}
+                                    src={musicObject.image}
+                                    alt={musicObject.name}
+                                    />
+                                </div>
+                            </a>
                             <div className='description'>
                                 <p className="seed">{musicObject.seed} </p>
                                 <a className='name' href={musicObject.link}>{musicObject.name}</a>
@@ -290,7 +309,9 @@ export default function Bracket(props) {
                 </div>
                 
             </div>
-            
+            <div className='spotify-logo-div'>
+                <img className='spotify-logo' src={spotify_logo} alt='Spotify'/>
+            </div>
         </div>
     );
 }
